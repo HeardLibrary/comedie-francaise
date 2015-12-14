@@ -25,9 +25,9 @@ declare function local:convert-people($map as element()) as element()
 
 let $base-url := "http://api.cfregisters.org/"
 let $people-url := $base-url || "people"
-let $people := fetch:text($people-url)
-let $raw-xml := fn:json-to-xml($people)
-let $plays := element people {
+let $people-data := fetch:text($people-url)
+let $raw-xml := fn:json-to-xml($people-data)
+let $people := element people {
    for $map in $raw-xml/xpf:array/xpf:map
    return local:convert-people($map) }
-return csv:serialize($plays, map { 'header': true() })
+return csv:serialize($people, map { 'header': true() })
