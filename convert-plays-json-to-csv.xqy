@@ -7,12 +7,12 @@ declare namespace xpf = "http://www.w3.org/2005/xpath-functions";
 declare function local:convert-play($map as element()) as element()
 {
   element play {
-    attribute id {$map/xpf:number[@key="id"]/text()},
     attribute created {$map/xpf:string[@key="created_at"]/text()},
     attribute updated {$map/xpf:string[@key="updated_at"]/text()},
     attribute validated {$map/xpf:string[@key="expert_validated"]/text()},
     attribute musique-danse-machine {$map/xpf:string[@key="musique_danse_machine"]/text()},
     attribute packed {$map/xpf:string[@key="_packed_id"]/text()},
+    element id {$map/xpf:number[@key="id"]/text()},
     element author {$map/xpf:string[@key="author"]/text()},
     element title {$map/xpf:string[@key="title"]/text()},
     element date {$map/xpf:string[@key="date_de_creation"]/text()},
